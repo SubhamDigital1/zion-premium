@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>ZION PREMIUM — Subscription Activation Guide</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --bg:#050505;
+  --card:#0d0d0d;
+  --line:#242424;
+  --text:#fff;
+  --muted:#a4a4a4;
+  --soft:#151515;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:28px 18px 60px;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:45px 20px 30px;
+  border-bottom:1px solid var(--line);
+}
+
+.logo{
+  display:inline-flex;
+  padding:7px 13px;
+  border:1px solid #444;
+  border-radius:999px;
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:800;
+}
+
+h1{
+  font-size:clamp(30px,6vw,58px);
+  line-height:1.1;
+  margin:18px 0 10px;
+  letter-spacing:-2px;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:650px;
+  margin:auto;
+}
+
+/* STEPS */
+
+.steps{
+  display:grid;
+  gap:24px;
+  margin-top:30px;
+}
+
+.step{
+  background:linear-gradient(145deg,#111,#090909);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 12px 40px #0008;
+}
+
+.step-head{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.num{
+  width:42px;
+  height:42px;
+  min-width:42px;
+  border-radius:12px;
+  background:#fff;
+  color:#000;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+}
+
+h2{
+  font-size:22px;
+  line-height:1.3;
+  margin:0;
+}
+
+.desc{
+  color:var(--muted);
+  margin:10px 0 20px;
+}
+
+/* MOCK SCREEN */
+
+.mock{
+  background:#070707;
+  border:1px solid #303030;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.bar{
+  height:34px;
+  background:#111;
+  border-bottom:1px solid #282828;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:0 12px;
+}
+
+.dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#555;
+}
+
+.screen{
+  padding:20px;
+  min-height:230px;
+}
+
+/* POSTERS */
+
+.poster-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.poster{
+  height:150px;
+  border-radius:12px;
+  background:linear-gradient(150deg,#303030,#0c0c0c);
+  display:flex;
+  align-items:flex-end;
+  padding:10px;
+  font-weight:800;
+  position:relative;
+  overflow:hidden;
+}
+
+.badge{
+  position:absolute;
+  top:9px;
+  left:9px;
+  background:#fff;
+  color:#000;
+  border-radius:6px;
+  padding:3px 7px;
+  font-size:10px;
+  font-weight:900;
+}
+
+.movie-title{
+  font-size:12px;
+}
+
+/* BUTTON */
+
+.btn{
+  display:inline-block;
+  background:#fff;
+  color:#000;
+  padding:10px 17px;
+  border-radius:9px;
+  font-weight:800;
+  text-decoration:none;
+  margin-top:8px;
+}
+
+.btn:hover{
+  opacity:.85;
+}
+
+.btn.dark{
+  background:#171717;
+  color:#fff;
+  border:1px solid #333;
+}
+
+.center{
+  text-align:center;
+}
+
+/* PAYMENT */
+
+.payment{
+  max-width:430px;
+  margin:auto;
+  background:#fff;
+  color:#111;
+  border-radius:14px;
+  padding:18px;
+}
+
+.input{
+  height:38px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  margin:8px 0;
+  background:#fafafa;
+  padding:9px;
+  color:#777;
+  font-size:12px;
+}
+
+.paybtn{
+  background:#111;
+  color:#fff;
+  border-radius:8px;
+  padding:11px;
+  text-align:center;
+  font-weight:800;
+}
+
+.methods{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.method{
+  border:1px solid #ddd;
+  border-radius:6px;
+  padding:5px 8px;
+  font-size:10px;
+}
+
+/* SUCCESS */
+
+.success{
+  max-width:650px;
+  margin:auto;
+  background:#fff;
+  color:#111;
+  border-radius:14px;
+  padding:20px;
+}
+
+.success h3{
+  margin-top:0;
+}
+
+.alert{
+  border:1px solid #ccc;
+  background:#f5f5f5;
+  border-radius:9px;
+  padding:12px;
+  margin-top:13px;
+  font-size:12px;
+}
+
+/* FINAL */
+
+.final{
+  border:1px solid #333;
+  background:#101010;
+  border-radius:18px;
+  padding:20px;
+  margin-top:24px;
+}
+
+.email{
+  color:#fff;
+  text-decoration:underline;
+}
+
+.footer{
+  text-align:center;
+  color:#666;
+  margin-top:35px;
+  font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .container{
+    padding:16px 12px 45px;
+  }
+
+  .hero{
+    padding:30px 10px 25px;
+  }
+
+  h1{
+    font-size:32px;
+    letter-spacing:-1px;
+  }
+
+  .step{
+    padding:16px;
+    border-radius:18px;
+  }
+
+  .step-head{
+    align-items:flex-start;
+  }
+
+  h2{
+    font-size:19px;
+  }
+
+  .poster-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .poster{
+    height:125px;
+  }
+
+  .screen{
+    padding:13px;
+    min-height:200px;
+  }
+
+  .success{
+    padding:16px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<span class="logo">
+ZION PREMIUM
+</span>
+
+<h1>
+Subscription &amp; Activation Guide
+</h1>
+
+<p>
+Follow these simple steps to purchase ZION PREMIUM
+and get your 30-day subscription activated.
+</p>
+
+</header>
+
+
+<main class="steps">
+
+
+<!-- STEP 01 -->
+
+<section class="step">
+
+<div class="step-head">
+
+<div class="num">
+01
+</div>
+
+<h2>
+Open the ZION Home Page
+</h2>
+
+</div>
+
+<p class="desc">
+Go to the first/home page and find a movie marked
+<b>PREMIUM</b>. Premium movies require an active
+ZION PREMIUM subscription.
+</p>
+
+<div class="mock">
+
+<div class="bar">
+<i class="dot"></i>
+<i class="dot"></i>
+<i class="dot"></i>
+</div>
+
+<div class="screen">
+
+<div class="poster-grid">
+
+<div class="poster">
+
+<span class="badge">
+PREMIUM
+</span>
+
+<span class="movie-title">
+MOVIE ONE
+</span>
+
+</div>
+
+
+<div class="poster">
+
+<span class="badge">
+PREMIUM
+</span>
+
+<span class="movie-title">
+MOVIE TWO
+</span>
+
+</div>
+
+
+<div class="poster">
+
+<span class="movie-title">
+FREE MOVIE
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STEP 02 -->
+
+<section class="step">
+
+<div class="step-head">
+
+<div class="num">
+02
+</div>
+
+<h2>
+Open a Premium Movie
+</h2>
+
+</div>
+
+<p class="desc">
+Tap any movie marked <b>PREMIUM</b>.
+On the movie page, you will see
+<b>SUBSCRIBE TO WATCH</b>.
+</p>
+
+<div class="mock">
+
+<div class="bar">
+<i class="dot"></i>
+<i class="dot"></i>
+<i class="dot"></i>
+</div>
+
+<div class="screen center">
+
+<div style="font-size:28px;font-weight:900;">
+PREMIUM MOVIE
+</div>
+
+<div style="color:#999;margin:6px 0;">
+This title requires ZION PREMIUM.
+</div>
+
+<a class="btn">
+SUBSCRIBE TO WATCH
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STEP 03 -->
+
+<section class="step">
+
+<div class="step-head">
+
+<div class="num">
+03
+</div>
+
+<h2>
+Or Buy from Account Center
+</h2>
+
+</div>
+
+<p class="desc">
+You can also open your <b>Account Center</b>
+and select the <b>ZION PREMIUM</b> banner
+to purchase your subscription.
+</p>
+
+<div class="mock">
+
+<div class="bar">
+<i class="dot"></i>
+<i class="dot"></i>
+<i class="dot"></i>
+</div>
+
+<div class="screen center">
+
+<div style="
+border:1px solid #333;
+border-radius:14px;
+padding:25px;
+">
+
+<div style="
+font-size:24px;
+font-weight:900;
+">
+ZION PREMIUM
+</div>
+
+<div style="color:#999;">
+30 Days Premium Access
+</div>
+
+<a class="btn">
+SUBSCRIBE NOW
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STEP 04 -->
+
+<section class="step">
+
+<div class="step-head">
+
+<div class="num">
+04
+</div>
+
+<h2>
+Click “SUBSCRIBE NOW”
+</h2>
+
+</div>
+
+<p class="desc">
+After clicking the subscription button,
+you will be redirected to the Razorpay
+payment page.
+</p>
+
+<div class="mock">
+
+<div class="bar">
+<i class="dot"></i>
+<i class="dot"></i>
+<i class="dot"></i>
+</div>
+
+<div class="screen center">
+
+<div class="payment">
+
+<b>
+Razorpay Checkout
+</b>
+
+<div class="input">
+Enter your email address
+</div>
+
+<div class="input">
+Enter your mobile number
+</div>
+
+<div class="paybtn">
+Pay Now
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STEP 05 -->
+
+<section class="step">
+
+<div class="step-head">
+
+<div class="num">
+05
+</div>
+
+<h2>
+Enter Your Account Details
+</h2>
+
+</div>
+
+<p class="desc">
+
+<b>Important:</b>
+
+Enter the exact same email address
+that is registered on your ZION account.
+
+Also enter your mobile number.
+
+</p>
+
+<div class="mock">
+
+<div class="bar">
+<i class="dot"></i>
+<i class="dot"></i>
+<i class="dot"></i>
+</div>
+
+<div class="screen center">
+
+<div class="payment">
+
+<b>
+Payment Details
+</b>
+
+<div class="input">
+your-zion-account@email.com
+</div>
+
+<div class="input">
++91 XXXXX XXXXX
+</div>
+
+<div class="paybtn">
+Proceed to Pay
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STEP 06 -->
+
+<section class="step">
+
+<div class="step-head">
+
+<div class="num">
+06
+</div>
+
+<h2>
+Complete the Payment
+</h2>
+
+</div>
+
+<p class="desc">
+
+Choose any available Razorpay payment method
+and complete the payment.
+
+UPI, cards, wallets and other supported
+methods may be available at checkout.
+
+</p>
+
+<div class="mock">
+
+<div class="bar">
+<i class="dot"></i>
+<i class="dot"></i>
+<i class="dot"></i>
+</div>
+
+<div class="screen">
+
+<div class="payment">
+
+<b>
+Select Payment Method
+</b>
+
+<div class="methods">
+
+<span class="method">
+UPI
+</span>
+
+<span class="method">
+Cards
+</span>
+
+<span class="method">
+Wallets
+</span>
+
+<span class="method">
+NetBanking
+</span>
+
+</div>
+
+<div class="input">
+Select / enter payment details
+</div>
+
+<div class="paybtn">
+Pay Securely
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STEP 07 -->
+
+<section class="step">
+
+<div class="step-head">
+
+<div class="num">
+07
+</div>
+
+<h2>
+Payment Confirmation
+</h2>
+
+</div>
+
+<p class="desc">
+
+After successful payment, you will see
+the payment confirmation page.
+
+Please read the notice carefully.
+
+</p>
+
+<div class="mock">
+
+<div class="bar">
+<i class="dot"></i>
+<i class="dot"></i>
+<i class="dot"></i>
+</div>
+
+<div class="screen">
+
+<div class="success">
+
+<h3>
+PAYMENT CONFIRMATION
+</h3>
+
+<p>
+This is only a Razorpay payment confirmation
+message. Your payment has been received successfully.
+</p>
+
+<p>
+
+Our team will carefully review and verify your payment
+within <b>24–48 hours</b>.
+
+After successful verification, your
+ZION PREMIUM subscription will be activated
+for <b>30 days</b> on your account.
+
+</p>
+
+<div class="alert">
+
+<b>
+IMPORTANT — PLEASE READ
+</b>
+
+<br><br>
+
+The email address registered on your ZION account
+must exactly match the email address you provided
+while making the Razorpay payment.
+
+<br><br>
+
+If the email addresses do not match, your payment
+may be successfully completed, but your 30-day
+ZION PREMIUM subscription may not be activated.
+
+<br><br>
+
+Please make sure you always use the same email
+address for both your ZION account and Razorpay payment.
+
+<br><br>
+
+No refund will be provided for an email mismatch
+or incorrect account/payment details.
+
+</div>
+
+<p>
+Thank you for choosing
+<b>ZION PREMIUM.</b>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STEP 08 -->
+
+<section class="step">
+
+<div class="step-head">
+
+<div class="num">
+08
+</div>
+
+<h2>
+Wait for Verification &amp; Activation
+</h2>
+
+</div>
+
+<p class="desc">
+
+Once your payment has been verified successfully,
+ZION PREMIUM will be activated on your account
+for <b>30 days</b>.
+
+</p>
+
+<div class="final">
+
+<b>
+Need help?
+</b>
+
+<br>
+
+If you have any problem with your payment
+or activation, contact ZION Support:
+
+<br>
+
+<a class="email"
+href="mailto:zionsupport.in@gmail.com">
+
+zionsupport.in@gmail.com
+
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+
+© ZION PREMIUM • Subscription &amp; Activation Guide
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>
