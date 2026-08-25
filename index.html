@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>ZION PREMIUM — Subscription Guide</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#050505;
+  color:#fff;
+  font-family:Inter,Arial,sans-serif;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:15px 14px 60px;
+}
+
+/* TOP BAR */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.back-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 15px;
+  border:1px solid #333;
+  border-radius:12px;
+  background:linear-gradient(145deg,#181818,#090909);
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:800;
+  transition:.25s;
+}
+
+.back-btn:hover{
+  background:#fff;
+  color:#000;
+  transform:translateX(-3px);
+}
+
+.back-icon{
+  font-size:18px;
+}
+
+/* LANGUAGE */
+.lang-box{
+  position:relative;
+}
+
+.lang-btn{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:10px 13px;
+  border:1px solid #333;
+  border-radius:12px;
+  background:linear-gradient(145deg,#181818,#090909);
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.lang-menu{
+  position:absolute;
+  right:0;
+  top:48px;
+  width:175px;
+  background:#111;
+  border:1px solid #333;
+  border-radius:14px;
+  padding:7px;
+  display:none;
+  z-index:99;
+  box-shadow:0 18px 45px #000;
+}
+
+.lang-menu.show{
+  display:block;
+}
+
+.lang-menu button{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#ddd;
+  text-align:left;
+  padding:10px 11px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.lang-menu button:hover{
+  background:#fff;
+  color:#000;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:30px 12px 35px;
+  border-bottom:1px solid #222;
+}
+
+.logo{
+  display:inline-block;
+  padding:7px 15px;
+  border:1px solid #555;
+  border-radius:50px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:3px;
+  background:linear-gradient(90deg,#fff,#aaa,#fff);
+  color:#000;
+}
+
+.hero h1{
+  font-size:clamp(32px,6vw,58px);
+  line-height:1.05;
+  margin:18px 0 12px;
+  letter-spacing:-2px;
+}
+
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:#999;
+  font-size:15px;
+}
+
+/* STEPS */
+.steps{
+  display:grid;
+  gap:24px;
+  margin-top:30px;
+}
+
+.step{
+  background:linear-gradient(145deg,#111,#080808);
+  border:1px solid #252525;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 15px 45px rgba(0,0,0,.45);
+}
+
+.step-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.num{
+  min-width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  color:#000;
+  border-radius:12px;
+  font-weight:900;
+  font-size:13px;
+}
+
+.step h2{
+  margin:0;
+  font-size:22px;
+}
+
+.desc{
+  color:#aaa;
+  margin:12px 0 20px;
+  font-size:14px;
+}
+
+/* MOVIES */
+.movie-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.movie{
+  position:relative;
+  overflow:hidden;
+  border-radius:13px;
+  background:#111;
+  border:1px solid #292929;
+}
+
+.movie img{
+  width:100%;
+  display:block;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  transition:.35s;
+}
+
+.movie:hover img{
+  transform:scale(1.04);
+}
+
+.premium{
+  position:absolute;
+  z-index:2;
+  top:9px;
+  left:9px;
+  background:#fff;
+  color:#000;
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.5px;
+  box-shadow:0 4px 15px #0008;
+}
+
+/* SCREENSHOT */
+.screenshot{
+  width:100%;
+  display:block;
+  border-radius:15px;
+  border:1px solid #303030;
+  box-shadow:0 12px 35px rgba(0,0,0,.55);
+}
+
+/* CONFIRMATION */
+.confirm{
+  background:#fff;
+  color:#111;
+  border-radius:15px;
+  padding:22px;
+  box-shadow:0 10px 35px #0007;
+}
+
+.confirm h3{
+  margin-top:0;
+  font-size:20px;
+}
+
+.warning{
+  background:#f2f2f2;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:15px;
+  font-size:13px;
+}
+
+/* SUPPORT */
+.support{
+  margin-top:20px;
+  padding:20px;
+  background:linear-gradient(145deg,#151515,#0b0b0b);
+  border:1px solid #303030;
+  border-radius:15px;
+}
+
+.support a{
+  color:#fff;
+  font-weight:700;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  color:#666;
+  font-size:12px;
+  margin-top:35px;
+}
+
+/* MOBILE */
+@media(max-width:650px){
+
+  .container{
+    padding:12px 10px 45px;
+  }
+
+  .back-btn{
+    padding:9px 12px;
+    font-size:11px;
+  }
+
+  .lang-btn{
+    padding:9px 11px;
+    font-size:11px;
+  }
+
+  .hero{
+    padding:27px 10px;
+  }
+
+  .hero h1{
+    font-size:35px;
+  }
+
+  .step{
+    padding:16px;
+    border-radius:18px;
+  }
+
+  .step h2{
+    font-size:19px;
+  }
+
+  .movie-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+  }
+
+  .movie{
+    border-radius:9px;
+  }
+
+  .premium{
+    top:5px;
+    left:5px;
+    padding:3px 5px;
+    font-size:7px;
+  }
+
+  .lang-menu{
+    width:160px;
+  }
+
+  .confirm{
+    padding:17px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+<a href="javascript:history.back()" class="back-btn">
+<span class="back-icon">←</span>
+<span id="backText">BACK</span>
+</a>
+
+<div class="lang-box">
+
+<button class="lang-btn" onclick="toggleLang()">
+🌐 <span id="currentLang">English</span> ▾
+</button>
+
+<div class="lang-menu" id="langMenu">
+
+<button onclick="changeLang('en')">🇬🇧 English</button>
+<button onclick="changeLang('bn')">🇮🇳 বাংলা</button>
+<button onclick="changeLang('hi')">🇮🇳 हिन्दी</button>
+<button onclick="changeLang('te')">🇮🇳 తెలుగు</button>
+<button onclick="changeLang('ta')">🇮🇳 தமிழ்</button>
+<button onclick="changeLang('kn')">🇮🇳 ಕನ್ನಡ</button>
+<button onclick="changeLang('ml')">🇮🇳 മലയാളം</button>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- HERO -->
+<header class="hero">
+
+<span class="logo">ZION PREMIUM</span>
+
+<h1 id="title">
+Subscription &<br>
+Activation Guide
+</h1>
+
+<p id="intro">
+Follow these simple steps to purchase ZION PREMIUM
+and activate your 30-day subscription.
+</p>
+
+</header>
+
+
+<div class="steps">
+
+
+<!-- STEP 01 -->
+<section class="step">
+
+<div class="step-head">
+<div class="num">01</div>
+<h2 id="s1title">Find a Premium Movie</h2>
+</div>
+
+<p class="desc" id="s1desc">
+Open the ZION home page. Movies that require a
+premium subscription will be marked with a
+<b>PREMIUM</b> badge on the poster.
+</p>
+
+<div class="movie-grid">
+
+<div class="movie">
+<span class="premium">PREMIUM</span>
+<img src="https://res.cloudinary.com/vsy1lisr/image/upload/v1787634320/IMG_20260823_074724_slbdot.jpg"
+alt="Movie One">
+</div>
+
+<div class="movie">
+<span class="premium">PREMIUM</span>
+<img src="https://res.cloudinary.com/vsy1lisr/image/upload/v1787634320/AAAABYumVG3MJLlDCOI0RBedHmfXnyTM4MOWUyASsoaYy-H3jIYxL5KnnOBj53134Ft6FXKftvHIxAyFFsyHlO9RqHczKLs1ftQ1l9gh_crsmcl.jpg"
+alt="Premium Movie">
+</div>
+
+<div class="movie">
+<img src="https://res.cloudinary.com/vsy1lisr/image/upload/v1787634319/IMG_20260823_074809_yfx2zp.jpg"
+alt="Free Movie">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STEP 02 -->
+<section class="step">
+
+<div class="step-head">
+<div class="num">02</div>
+<h2 id="s2title">Open the Premium Movie</h2>
+</div>
+
+<p class="desc" id="s2desc">
+Tap the movie marked <b>PREMIUM</b>. On the movie
+page, you will see the <b>SUBSCRIBE TO WATCH</b>
+option.
+</p>
+
+<img class="screenshot"
+src="https://res.cloudinary.com/vsy1lisr/image/upload/v1787634320/IMG_20260825_100045_i0obs4.jpg"
+alt="Premium Movie Page">
+
+</section>
+
+
+<!-- STEP 03 -->
+<section class="step">
+
+<div class="step-head">
+<div class="num">03</div>
+<h2 id="s3title">Buy from Account Center</h2>
+</div>
+
+<p class="desc" id="s3desc">
+You can also purchase ZION PREMIUM directly from
+your <b>Account Center</b>. Find the ZION PREMIUM
+banner and tap it to continue.
+</p>
+
+<img class="screenshot"
+src="https://res.cloudinary.com/vsy1lisr/image/upload/v1787634320/IMG_20260825_101828_yalgva.jpg"
+alt="ZION Account Center">
+
+</section>
+
+
+<!-- STEP 04 -->
+<section class="step">
+
+<div class="step-head">
+<div class="num">04</div>
+<h2 id="s4title">Enter Your Account Details</h2>
+</div>
+
+<p class="desc" id="s4desc">
+
+On the payment page, enter your email address and
+mobile number.
+
+<br><br>
+
+<b>Important:</b> The email address must be exactly
+the same email address registered on your ZION account.
+
+</p>
+
+<img class="screenshot"
+src="https://res.cloudinary.com/vsy1lisr/image/upload/v1787634320/IMG_20260825_102856_y3xgmn.jpg"
+alt="Payment Details">
+
+</section>
+
+
+<!-- STEP 05 -->
+<section class="step">
+
+<div class="step-head">
+<div class="num">05</div>
+<h2 id="s5title">Complete Your Payment</h2>
+</div>
+
+<p class="desc" id="s5desc">
+
+Select your preferred payment method and complete
+the payment securely.
+
+<br><br>
+
+Available payment methods may include
+<b>UPI, Cards, Wallets, NetBanking</b> and other
+methods supported by Razorpay.
+
+</p>
+
+<img class="screenshot"
+src="https://res.cloudinary.com/vsy1lisr/image/upload/v1787634320/IMG_20260825_103041_q9kstq.jpg"
+alt="Payment Method">
+
+</section>
+
+
+<!-- STEP 06 -->
+<section class="step">
+
+<div class="step-head">
+<div class="num">06</div>
+<h2 id="s6title">Payment Confirmation</h2>
+</div>
+
+<p class="desc" id="s6desc">
+After successful payment, you will receive a
+payment confirmation page. Please read the
+confirmation message carefully.
+</p>
+
+
+<div class="confirm">
+
+<h3 id="confirmTitle">
+PAYMENT CONFIRMATION
+</h3>
+
+<p id="confirm1">
+This is only a Razorpay payment confirmation
+message. Your payment has been received
+successfully.
+</p>
+
+<p id="confirm2">
+Our team will carefully review and verify your
+payment within <b>24–48 hours</b>. After successful
+verification, your ZION PREMIUM subscription will
+be activated for <b>30 days</b> on your account.
+</p>
+
+
+<div class="warning">
+
+<b id="important">
+IMPORTANT — PLEASE READ
+</b>
+
+<br><br>
+
+<span id="warningText">
+
+The email address registered on your ZION account
+must exactly match the email address you provided
+while making the Razorpay payment.
+
+<br><br>
+
+If the email addresses do not match, your payment
+may be successfully completed, but your 30-day
+ZION PREMIUM subscription may not be activated.
+
+<br><br>
+
+Please make sure you always use the same email
+address for both your ZION account and Razorpay
+payment.
+
+<br><br>
+
+No refund will be provided for an email mismatch
+or incorrect account/payment details.
+
+</span>
+
+</div>
+
+
+<p id="thankyou">
+Thank you for choosing <b>ZION PREMIUM.</b>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- STEP 07 -->
+<section class="step">
+
+<div class="step-head">
+<div class="num">07</div>
+<h2 id="s7title">
+Wait for Verification & Activation
+</h2>
+</div>
+
+<p class="desc" id="s7desc">
+
+After your payment is successfully verified by our
+team, ZION PREMIUM will be activated on your account
+for <b>30 days</b>.
+
+<br><br>
+
+Please allow up to <b>24–48 hours</b> for payment
+verification and activation.
+
+</p>
+
+
+<div class="support">
+
+<b id="help">
+Need Help?
+</b>
+
+<br><br>
+
+<span id="helpText">
+If you experience any problem with your payment or
+subscription activation, contact ZION Support.
+</span>
+
+<br><br>
+
+<a href="mailto:zionsupport.in@gmail.com">
+zionsupport.in@gmail.com
+</a>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<footer class="footer" id="footer">
+© ZION PREMIUM • Subscription & Activation Guide
+</footer>
+
+</div>
+
+
+<script>
+
+const translations = {
+
+en:{
+lang:"English",
+back:"BACK",
+title:"Subscription &<br>Activation Guide",
+intro:"Follow these simple steps to purchase ZION PREMIUM and activate your 30-day subscription.",
+s1:"Find a Premium Movie",
+d1:"Open the ZION home page. Movies that require a premium subscription will be marked with a <b>PREMIUM</b> badge on the poster.",
+s2:"Open the Premium Movie",
+d2:"Tap the movie marked <b>PREMIUM</b>. On the movie page, you will see the <b>SUBSCRIBE TO WATCH</b> option.",
+s3:"Buy from Account Center",
+d3:"You can also purchase ZION PREMIUM directly from your <b>Account Center</b>. Find the ZION PREMIUM banner and tap it to continue.",
+s4:"Enter Your Account Details",
+d4:"On the payment page, enter your email address and mobile number.<br><br><b>Important:</b> The email address must be exactly the same email address registered on your ZION account.",
+s5:"Complete Your Payment",
+d5:"Select your preferred payment method and complete the payment securely.<br><br>Available payment methods may include <b>UPI, Cards, Wallets, NetBanking</b> and other methods supported by Razorpay.",
+s6:"Payment Confirmation",
+d6:"After successful payment, you will receive a payment confirmation page. Please read the confirmation message carefully.",
+confirm:"PAYMENT CONFIRMATION",
+c1:"This is only a Razorpay payment confirmation message. Your payment has been received successfully.",
+c2:"Our team will carefully review and verify your payment within <b>24–48 hours</b>. After successful verification, your ZION PREMIUM subscription will be activated for <b>30 days</b> on your account.",
+important:"IMPORTANT — PLEASE READ",
+warning:"The email address registered on your ZION account must exactly match the email address you provided while making the Razorpay payment.<br><br>If the email addresses do not match, your payment may be successfully completed, but your 30-day ZION PREMIUM subscription may not be activated.<br><br>Please make sure you always use the same email address for both your ZION account and Razorpay payment.<br><br>No refund will be provided for an email mismatch or incorrect account/payment details.",
+thanks:"Thank you for choosing <b>ZION PREMIUM.</b>",
+s7:"Wait for Verification & Activation",
+d7:"After your payment is successfully verified by our team, ZION PREMIUM will be activated on your account for <b>30 days</b>.<br><br>Please allow up to <b>24–48 hours</b> for payment verification and activation.",
+help:"Need Help?",
+helpText:"If you experience any problem with your payment or subscription activation, contact ZION Support.",
+footer:"© ZION PREMIUM • Subscription & Activation Guide"
+},
+
+bn:{
+lang:"বাংলা",
+back:"ফিরে যান",
+title:"সাবস্ক্রিপশন ও<br>অ্যাক্টিভেশন গাইড",
+intro:"ZION PREMIUM কিনে ৩০ দিনের সাবস্ক্রিপশন সক্রিয় করতে নিচের ধাপগুলো অনুসরণ করুন।",
+s1:"একটি Premium Movie খুঁজুন",
+d1:"ZION-এর Home Page খুলুন। যেসব মুভি দেখতে Premium Subscription প্রয়োজন, সেগুলোর পোস্টারে <b>PREMIUM</b> ব্যাজ থাকবে।",
+s2:"Premium Movie খুলুন",
+d2:"<b>PREMIUM</b> লেখা মুভিতে ক্লিক করুন। Movie Page-এ আপনি <b>SUBSCRIBE TO WATCH</b> অপশন দেখতে পাবেন।",
+s3:"Account Center থেকে কিনুন",
+d3:"আপনি <b>Account Center</b> থেকেও সরাসরি ZION PREMIUM কিনতে পারবেন। ZION PREMIUM Banner-এ ক্লিক করুন।",
+s4:"Account Details দিন",
+d4:"Payment Page-এ আপনার Email Address এবং Mobile Number দিন।<br><br><b>গুরুত্বপূর্ণ:</b> আপনার ZION Account-এ যে Email Address রয়েছে, ঠিক সেই Email Address ব্যবহার করুন।",
+s5:"Payment সম্পূর্ণ করুন",
+d5:"আপনার পছন্দের Payment Method নির্বাচন করে Payment সম্পূর্ণ করুন।<br><br>UPI, Card, Wallet, NetBanking এবং Razorpay-এ উপলব্ধ অন্যান্য Payment Method ব্যবহার করা যেতে পারে।",
+s6:"Payment Confirmation",
+d6:"Payment সফল হওয়ার পর আপনি একটি Payment Confirmation Page দেখতে পাবেন। অনুগ্রহ করে Confirmation Message-টি ভালোভাবে পড়ুন।",
+confirm:"PAYMENT CONFIRMATION",
+c1:"এটি শুধুমাত্র Razorpay Payment Confirmation Message। আপনার Payment সফলভাবে গ্রহণ করা হয়েছে।",
+c2:"আমাদের Team আপনার Payment 24–48 ঘণ্টার মধ্যে যাচাই করবে। Verification সফল হলে আপনার Account-এ ZION PREMIUM <b>৩০ দিনের জন্য</b> সক্রিয় করা হবে।",
+important:"গুরুত্বপূর্ণ — অবশ্যই পড়ুন",
+warning:"আপনার ZION Account-এ Registered Email Address এবং Razorpay Payment করার সময় দেওয়া Email Address অবশ্যই একই হতে হবে।<br><br>Email Address আলাদা হলে Payment সফল হলেও আপনার ৩০ দিনের ZION PREMIUM সক্রিয় নাও হতে পারে।<br><br>তাই ZION Account এবং Razorpay Payment-এর ক্ষেত্রে সবসময় একই Email Address ব্যবহার করুন।<br><br>Email mismatch বা ভুল Account/Payment Details-এর কারণে কোনো Refund দেওয়া হবে না।",
+thanks:"ZION PREMIUM বেছে নেওয়ার জন্য ধন্যবাদ।",
+s7:"Verification ও Activation-এর জন্য অপেক্ষা করুন",
+d7:"Payment সফলভাবে যাচাই হওয়ার পর আপনার Account-এ ZION PREMIUM <b>৩০ দিনের জন্য</b> সক্রিয় করা হবে।<br><br>Payment Verification ও Activation-এর জন্য সর্বোচ্চ <b>24–48 ঘণ্টা</b> সময় লাগতে পারে।",
+help:"সাহায্য প্রয়োজন?",
+helpText:"Payment বা Subscription Activation নিয়ে কোনো সমস্যা হলে ZION Support-এর সঙ্গে যোগাযোগ করুন।",
+footer:"© ZION PREMIUM • Subscription & Activation Guide"
+},
+
+hi:{
+lang:"हिन्दी",
+back:"वापस",
+title:"सब्सक्रिप्शन और<br>एक्टिवेशन गाइड",
+intro:"ZION PREMIUM खरीदने और 30 दिनों की सदस्यता सक्रिय करने के लिए इन आसान चरणों का पालन करें।",
+s1:"Premium Movie खोजें",
+d1:"ZION Home Page खोलें। जिन Movies के लिए Premium Subscription आवश्यक है, उनके Poster पर <b>PREMIUM</b> Badge दिखाई देगा।",
+s2:"Premium Movie खोलें",
+d2:"<b>PREMIUM</b> वाली Movie पर क्लिक करें। Movie Page पर आपको <b>SUBSCRIBE TO WATCH</b> विकल्प दिखाई देगा।",
+s3:"Account Center से खरीदें",
+d3:"आप <b>Account Center</b> से भी सीधे ZION PREMIUM खरीद सकते हैं। ZION PREMIUM Banner पर क्लिक करें।",
+s4:"Account Details दर्ज करें",
+d4:"Payment Page पर अपना Email Address और Mobile Number दर्ज करें।<br><br><b>महत्वपूर्ण:</b> वही Email Address इस्तेमाल करें जो आपके ZION Account में Registered है।",
+s5:"Payment पूरा करें",
+d5:"अपना पसंदीदा Payment Method चुनकर Payment पूरा करें।<br><br>UPI, Card, Wallet, NetBanking और Razorpay पर उपलब्ध अन्य Payment Methods इस्तेमाल किए जा सकते हैं।",
+s6:"Payment Confirmation",
+d6:"Payment सफल होने के बाद आपको Payment Confirmation Page दिखाई देगा। कृपया Confirmation Message ध्यान से पढ़ें।",
+confirm:"PAYMENT CONFIRMATION",
+c1:"यह केवल Razorpay Payment Confirmation Message है। आपका Payment सफलतापूर्वक प्राप्त हो गया है।",
+c2:"हमारी Team आपके Payment को 24–48 घंटों के भीतर Verify करेगी। Verification सफल होने के बाद आपके Account पर ZION PREMIUM <b>30 दिनों</b> के लिए सक्रिय किया जाएगा।",
+important:"महत्वपूर्ण — कृपया पढ़ें",
+warning:"आपके ZION Account में Registered Email Address और Razorpay Payment के दौरान दिया गया Email Address बिल्कुल समान होना चाहिए।<br><br>Email अलग होने पर Payment सफल हो सकता है, लेकिन आपका 30-दिन का ZION PREMIUM सक्रिय नहीं हो सकता।<br><br>कृपया ZION Account और Razorpay Payment दोनों में हमेशा एक ही Email Address इस्तेमाल करें।<br><br>Email mismatch या गलत Account/Payment Details के लिए कोई Refund नहीं दिया जाएगा।",
+thanks:"ZION PREMIUM चुनने के लिए धन्यवाद।",
+s7:"Verification और Activation की प्रतीक्षा करें",
+d7:"Payment सफलतापूर्वक Verify होने के बाद आपके Account पर ZION PREMIUM <b>30 दिनों</b> के लिए सक्रिय किया जाएगा।<br><br>Payment Verification और Activation में <b>24–48 घंटे</b> तक लग सकते हैं।",
+help:"मदद चाहिए?",
+helpText:"Payment या Subscription Activation में कोई समस्या होने पर ZION Support से संपर्क करें।",
+footer:"© ZION PREMIUM • Subscription & Activation Guide"
+},
+
+te:{
+lang:"తెలుగు",
+back:"వెనుకకు",
+title:"సబ్‌స్క్రిప్షన్ &<br>యాక్టివేషన్ గైడ్",
+intro:"ZION PREMIUM కొనుగోలు చేసి 30 రోజుల సబ్‌స్క్రిప్షన్‌ను యాక్టివేట్ చేయడానికి ఈ దశలను అనుసరించండి.",
+s1:"Premium Movie కనుగొనండి",
+d1:"ZION Home Page తెరవండి. Premium Subscription అవసరమైన Movies Poster పై <b>PREMIUM</b> Badge కనిపిస్తుంది.",
+s2:"Premium Movie తెరవండి",
+d2:"<b>PREMIUM</b> ఉన్న Movie పై క్లిక్ చేయండి. Movie Page లో <b>SUBSCRIBE TO WATCH</b> ఆప్షన్ కనిపిస్తుంది.",
+s3:"Account Center నుండి కొనండి",
+d3:"మీరు <b>Account Center</b> నుండి కూడా నేరుగా ZION PREMIUM కొనుగోలు చేయవచ్చు. ZION PREMIUM Banner పై క్లిక్ చేయండి.",
+s4:"Account Details నమోదు చేయండి",
+d4:"Payment Page లో మీ Email Address మరియు Mobile Number నమోదు చేయండి.<br><br><b>ముఖ్యమైనది:</b> మీ ZION Account లో Registered Email Address నే ఉపయోగించాలి.",
+s5:"Payment పూర్తి చేయండి",
+d5:"మీకు నచ్చిన Payment Method ఎంచుకుని Payment పూర్తి చేయండి.<br><br>UPI, Cards, Wallets, NetBanking మరియు Razorpayలో అందుబాటులో ఉన్న ఇతర Payment Methods ఉపయోగించవచ్చు.",
+s6:"Payment Confirmation",
+d6:"Payment విజయవంతమైన తర్వాత Payment Confirmation Page కనిపిస్తుంది. Confirmation Message ను జాగ్రత్తగా చదవండి.",
+confirm:"PAYMENT CONFIRMATION",
+c1:"ఇది కేవలం Razorpay Payment Confirmation Message. మీ Payment విజయవంతంగా స్వీకరించబడింది.",
+c2:"మా Team మీ Payment ను 24–48 గంటల్లో Verify చేస్తుంది. Verification విజయవంతమైన తర్వాత మీ Account లో ZION PREMIUM <b>30 రోజుల</b> పాటు యాక్టివేట్ చేయబడుతుంది.",
+important:"ముఖ్యమైనది — తప్పకుండా చదవండి",
+warning:"మీ ZION Account లోని Registered Email Address మరియు Razorpay Payment సమయంలో ఇచ్చిన Email Address తప్పనిసరిగా ఒకేలా ఉండాలి.<br><br>Email వేరుగా ఉంటే Payment విజయవంతమైనప్పటికీ 30 రోజుల ZION PREMIUM యాక్టివేట్ కాకపోవచ్చు.<br><br>ZION Account మరియు Razorpay Payment రెండింటిలోనూ ఒకే Email Address ఉపయోగించండి.<br><br>Email mismatch లేదా తప్పు Account/Payment Details కారణంగా Refund ఇవ్వబడదు.",
+thanks:"ZION PREMIUM ఎంచుకున్నందుకు ధన్యవాదాలు.",
+s7:"Verification & Activation కోసం వేచి ఉండండి",
+d7:"Payment విజయవంతంగా Verify అయిన తర్వాత మీ Account లో ZION PREMIUM <b>30 రోజుల</b> పాటు యాక్టివేట్ చేయబడుతుంది.<br><br>Payment Verification మరియు Activation కు <b>24–48 గంటలు</b> వరకు పట్టవచ్చు.",
+help:"సహాయం కావాలా?",
+helpText:"Payment లేదా Subscription Activation లో సమస్య ఉంటే ZION Support ను సంప్రదించండి.",
+footer:"© ZION PREMIUM • Subscription & Activation Guide"
+},
+
+ta:{
+lang:"தமிழ்",
+back:"பின்செல்",
+title:"சந்தா &<br>செயல்படுத்தும் வழிகாட்டி",
+intro:"ZION PREMIUM வாங்கி 30 நாள் சந்தாவை செயல்படுத்த இந்த எளிய படிகளைப் பின்பற்றவும்.",
+s1:"Premium Movie-ஐ கண்டுபிடிக்கவும்",
+d1:"ZION Home Page-ஐ திறக்கவும். Premium Subscription தேவைப்படும் Movies Poster-ல் <b>PREMIUM</b> Badge இருக்கும்.",
+s2:"Premium Movie-ஐ திறக்கவும்",
+d2:"<b>PREMIUM</b> உள்ள Movie-ஐ கிளிக் செய்யவும். Movie Page-ல் <b>SUBSCRIBE TO WATCH</b> விருப்பம் இருக்கும்.",
+s3:"Account Center மூலம் வாங்கவும்",
+d3:"<b>Account Center</b> மூலமாகவும் நேரடியாக ZION PREMIUM வாங்கலாம். ZION PREMIUM Banner-ஐ கிளிக் செய்யவும்.",
+s4:"Account Details உள்ளிடவும்",
+d4:"Payment Page-ல் உங்கள் Email Address மற்றும் Mobile Number-ஐ உள்ளிடவும்.<br><br><b>முக்கியம்:</b> உங்கள் ZION Account-ல் பதிவு செய்யப்பட்ட அதே Email Address-ஐ பயன்படுத்தவும்.",
+s5:"Payment-ஐ முடிக்கவும்",
+d5:"உங்களுக்கு விருப்பமான Payment Method-ஐ தேர்வு செய்து Payment-ஐ முடிக்கவும்.<br><br>UPI, Cards, Wallets, NetBanking மற்றும் Razorpay-ல் கிடைக்கும் பிற Payment Methods பயன்படுத்தலாம்.",
+s6:"Payment Confirmation",
+d6:"Payment வெற்றிகரமாக முடிந்த பிறகு Payment Confirmation Page தோன்றும். Confirmation Message-ஐ கவனமாகப் படிக்கவும்.",
+confirm:"PAYMENT CONFIRMATION",
+c1:"இது Razorpay Payment Confirmation Message மட்டுமே. உங்கள் Payment வெற்றிகரமாகப் பெறப்பட்டது.",
+c2:"எங்கள் Team உங்கள் Payment-ஐ 24–48 மணி நேரத்திற்குள் Verify செய்யும். Verification வெற்றிகரமாக முடிந்த பிறகு உங்கள் Account-ல் ZION PREMIUM <b>30 நாட்களுக்கு</b> செயல்படுத்தப்படும்.",
+important:"முக்கியம் — தயவுசெய்து படிக்கவும்",
+warning:"உங்கள் ZION Account-ல் உள்ள Registered Email Address மற்றும் Razorpay Payment செய்யும்போது வழங்கிய Email Address இரண்டும் ஒரே மாதிரியாக இருக்க வேண்டும்.<br><br>Email வேறுபட்டால் Payment வெற்றிகரமாக இருந்தாலும் 30 நாள் ZION PREMIUM செயல்படுத்தப்படாமல் இருக்கலாம்.<br><br>ZION Account மற்றும் Razorpay Payment இரண்டிலும் ஒரே Email Address-ஐ பயன்படுத்தவும்.<br><br>Email mismatch அல்லது தவறான Account/Payment Details காரணமாக Refund வழங்கப்படாது.",
+thanks:"ZION PREMIUM தேர்வு செய்ததற்கு நன்றி.",
+s7:"Verification & Activation-க்காக காத்திருக்கவும்",
+d7:"Payment வெற்றிகரமாக Verify செய்யப்பட்ட பிறகு உங்கள் Account-ல் ZION PREMIUM <b>30 நாட்களுக்கு</b> செயல்படுத்தப்படும்.<br><br>Payment Verification மற்றும் Activation-க்கு <b>24–48 மணி நேரம்</b> வரை ஆகலாம்.",
+help:"உதவி தேவையா?",
+helpText:"Payment அல்லது Subscription Activation-ல் ஏதேனும் பிரச்சனை இருந்தால் ZION Support-ஐ தொடர்பு கொள்ளவும்.",
+footer:"© ZION PREMIUM • Subscription & Activation Guide"
+},
+
+kn:{
+lang:"ಕನ್ನಡ",
+back:"ಹಿಂದೆ",
+title:"ಸಬ್‌ಸ್ಕ್ರಿಪ್ಶನ್ &<br>ಆಕ್ಟಿವೇಶನ್ ಗೈಡ್",
+intro:"ZION PREMIUM ಖರೀದಿಸಿ 30 ದಿನಗಳ ಸಬ್‌ಸ್ಕ್ರಿಪ್ಶನ್ ಸಕ್ರಿಯಗೊಳಿಸಲು ಈ ಸರಳ ಹಂತಗಳನ್ನು ಅನುಸರಿಸಿ.",
+s1:"Premium Movie ಹುಡುಕಿ",
+d1:"ZION Home Page ತೆರೆಯಿರಿ. Premium Subscription ಅಗತ್ಯವಿರುವ Movies Poster ಮೇಲೆ <b>PREMIUM</b> Badge ಕಾಣಿಸುತ್ತದೆ.",
+s2:"Premium Movie ತೆರೆಯಿರಿ",
+d2:"<b>PREMIUM</b> ಇರುವ Movie ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ. Movie Page ನಲ್ಲಿ <b>SUBSCRIBE TO WATCH</b> ಆಯ್ಕೆ ಕಾಣಿಸುತ್ತದೆ.",
+s3:"Account Center ಮೂಲಕ ಖರೀದಿಸಿ",
+d3:"ನೀವು <b>Account Center</b> ನಿಂದಲೂ ನೇರವಾಗಿ ZION PREMIUM ಖರೀದಿಸಬಹುದು. ZION PREMIUM Banner ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ.",
+s4:"Account Details ನಮೂದಿಸಿ",
+d4:"Payment Page ನಲ್ಲಿ ನಿಮ್ಮ Email Address ಮತ್ತು Mobile Number ನಮೂದಿಸಿ.<br><br><b>ಮುಖ್ಯ:</b> ನಿಮ್ಮ ZION Account ನಲ್ಲಿ Registered ಆಗಿರುವ ಅದೇ Email Address ಬಳಸಿ.",
+s5:"Payment ಪೂರ್ಣಗೊಳಿಸಿ",
+d5:"ನಿಮ್ಮ ಆಯ್ಕೆಯ Payment Method ಆಯ್ಕೆ ಮಾಡಿ Payment ಪೂರ್ಣಗೊಳಿಸಿ.<br><br>UPI, Cards, Wallets, NetBanking ಮತ್ತು Razorpay ನಲ್ಲಿ ಲಭ್ಯವಿರುವ ಇತರ Payment Methods ಬಳಸಬಹುದು.",
+s6:"Payment Confirmation",
+d6:"Payment ಯಶಸ್ವಿಯಾದ ನಂತರ Payment Confirmation Page ಕಾಣಿಸುತ್ತದೆ. Confirmation Message ಅನ್ನು ಗಮನವಾಗಿ ಓದಿ.",
+confirm:"PAYMENT CONFIRMATION",
+c1:"ಇದು ಕೇವಲ Razorpay Payment Confirmation Message. ನಿಮ್ಮ Payment ಯಶಸ್ವಿಯಾಗಿ ಸ್ವೀಕರಿಸಲಾಗಿದೆ.",
+c2:"ನಮ್ಮ Team ನಿಮ್ಮ Payment ಅನ್ನು 24–48 ಗಂಟೆಗಳೊಳಗೆ Verify ಮಾಡುತ್ತದೆ. Verification ಯಶಸ್ವಿಯಾದ ನಂತರ ನಿಮ್ಮ Account ನಲ್ಲಿ ZION PREMIUM <b>30 ದಿನಗಳ</b>ವರೆಗೆ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತದೆ.",
+important:"ಮುಖ್ಯ — ದಯವಿಟ್ಟು ಓದಿ",
+warning:"ನಿಮ್ಮ ZION Account ನ Registered Email Address ಮತ್ತು Razorpay Payment ಸಮಯದಲ್ಲಿ ನೀಡಿದ Email Address ಒಂದೇ ಆಗಿರಬೇಕು.<br><br>Email ಬೇರೆ ಇದ್ದರೆ Payment ಯಶಸ್ವಿಯಾದರೂ 30 ದಿನಗಳ ZION PREMIUM ಸಕ್ರಿಯವಾಗದೇ ಇರಬಹುದು.<br><br>ZION Account ಮತ್ತು Razorpay Payment ಎರಡರಲ್ಲೂ ಒಂದೇ Email Address ಬಳಸಿ.<br><br>Email mismatch ಅಥವಾ ತಪ್ಪಾದ Account/Payment Details ಕಾರಣಕ್ಕೆ Refund ನೀಡಲಾಗುವುದಿಲ್ಲ.",
+thanks:"ZION PREMIUM ಆಯ್ಕೆ ಮಾಡಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು.",
+s7:"Verification & Activation ಗಾಗಿ ಕಾಯಿರಿ",
+d7:"Payment ಯಶಸ್ವಿಯಾಗಿ Verify ಆದ ನಂತರ ನಿಮ್ಮ Account ನಲ್ಲಿ ZION PREMIUM <b>30 ದಿನಗಳ</b>ವರೆಗೆ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತದೆ.<br><br>Payment Verification ಮತ್ತು Activation ಗೆ <b>24–48 ಗಂಟೆಗಳ</b>ವರೆಗೆ ಸಮಯ ಬೇಕಾಗಬಹುದು.",
+help:"ಸಹಾಯ ಬೇಕೇ?",
+helpText:"Payment ಅಥವಾ Subscription Activation ನಲ್ಲಿ ಯಾವುದೇ ಸಮಸ್ಯೆ ಇದ್ದರೆ ZION Support ಅನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+footer:"© ZION PREMIUM • Subscription & Activation Guide"
+},
+
+ml:{
+lang:"മലയാളം",
+back:"തിരികെ",
+title:"സബ്‌സ്‌ക്രിപ്ഷൻ &<br>ആക്ടിവേഷൻ ഗൈഡ്",
+intro:"ZION PREMIUM വാങ്ങി 30 ദിവസത്തെ സബ്‌സ്‌ക്രിപ്ഷൻ ആക്ടിവേറ്റ് ചെയ്യാൻ താഴെയുള്ള ഘട്ടങ്ങൾ പിന്തുടരുക.",
+s1:"Premium Movie കണ്ടെത്തുക",
+d1:"ZION Home Page തുറക്കുക. Premium Subscription ആവശ്യമുള്ള Movies-ന്റെ Poster-ൽ <b>PREMIUM</b> Badge കാണാം.",
+s2:"Premium Movie തുറക്കുക",
+d2:"<b>PREMIUM</b> ഉള്ള Movie-ൽ ക്ലിക്ക് ചെയ്യുക. Movie Page-ൽ <b>SUBSCRIBE TO WATCH</b> ഓപ്ഷൻ കാണാം.",
+s3:"Account Center വഴി വാങ്ങുക",
+d3:"നിങ്ങളുടെ <b>Account Center</b> വഴിയും നേരിട്ട് ZION PREMIUM വാങ്ങാം. ZION PREMIUM Banner-ൽ ക്ലിക്ക് ചെയ്യുക.",
+s4:"Account Details നൽകുക",
+d4:"Payment Page-ൽ നിങ്ങളുടെ Email Address, Mobile Number എന്നിവ നൽകുക.<br><br><b>പ്രധാനപ്പെട്ടത്:</b> നിങ്ങളുടെ ZION Account-ൽ Registered ആയ അതേ Email Address തന്നെ നൽകണം.",
+s5:"Payment പൂർത്തിയാക്കുക",
+d5:"നിങ്ങൾക്ക് ഇഷ്ടമുള്ള Payment Method തിരഞ്ഞെടുക്കുകയും Payment പൂർത്തിയാക്കുകയും ചെയ്യുക.<br><br>UPI, Cards, Wallets, NetBanking എന്നിവയും Razorpay-ൽ ലഭ്യമായ മറ്റ് Payment Methods-ഉം ഉപയോഗിക്കാം.",
+s6:"Payment Confirmation",
+d6:"Payment വിജയകരമായി പൂർത്തിയായ ശേഷം Payment Confirmation Page കാണും. Confirmation Message ശ്രദ്ധാപൂർവ്വം വായിക്കുക.",
+confirm:"PAYMENT CONFIRMATION",
+c1:"ഇത് ഒരു Razorpay Payment Confirmation Message മാത്രമാണ്. നിങ്ങളുടെ Payment വിജയകരമായി ലഭിച്ചു.",
+c2:"ഞങ്ങളുടെ Team നിങ്ങളുടെ Payment 24–48 മണിക്കൂറിനുള്ളിൽ Verify ചെയ്യും. Verification വിജയിച്ചാൽ നിങ്ങളുടെ Account-ൽ ZION PREMIUM <b>30 ദിവസത്തേക്ക്</b> ആക്ടിവേറ്റ് ചെയ്യും.",
+important:"പ്രധാനപ്പെട്ടത് — ദയവായി വായിക്കുക",
+warning:"നിങ്ങളുടെ ZION Account-ലെ Registered Email Address-ഉം Razorpay Payment സമയത്ത് നൽകിയ Email Address-ഉം കൃത്യമായി ഒരേ ആയിരിക്കണം.<br><br>Email വ്യത്യസ്തമാണെങ്കിൽ Payment വിജയിച്ചാലും 30 ദിവസത്തെ ZION PREMIUM ആക്ടിവേറ്റ് ചെയ്യപ്പെടണമെന്നില്ല.<br><br>ZION Account-ലും Razorpay Payment-ലും ഒരേ Email Address ഉപയോഗിക്കുക.<br><br>Email mismatch അല്ലെങ്കിൽ തെറ്റായ Account/Payment Details കാരണം Refund നൽകുന്നതല്ല.",
+thanks:"ZION PREMIUM തിരഞ്ഞെടുക്കുന്നതിന് നന്ദി.",
+s7:"Verification & Activation-നായി കാത്തിരിക്കുക",
+d7:"Payment വിജയകരമായി Verify ചെയ്ത ശേഷം നിങ്ങളുടെ Account-ൽ ZION PREMIUM <b>30 ദിവസത്തേക്ക്</b> ആക്ടിവേറ്റ് ചെയ്യും.<br><br>Payment Verification, Activation എന്നിവയ്ക്ക് <b>24–48 മണിക്കൂർ</b> വരെ എടുത്തേക്കാം.",
+help:"സഹായം ആവശ്യമുണ്ടോ?",
+helpText:"Payment അല്ലെങ്കിൽ Subscription Activation സംബന്ധിച്ച് എന്തെങ്കിലും പ്രശ്നമുണ്ടെങ്കിൽ ZION Support-നെ ബന്ധപ്പെടുക.",
+footer:"© ZION PREMIUM • Subscription & Activation Guide"
+}
+
+};
+
+
+function toggleLang(){
+
+  document
+  .getElementById("langMenu")
+  .classList
+  .toggle("show");
+
+}
+
+
+function changeLang(lang){
+
+  const t=translations[lang];
+
+  document.documentElement.lang=lang;
+
+  document.getElementById("currentLang").innerText=t.lang;
+
+  document.getElementById("backText").innerText=t.back;
+
+  document.getElementById("title").innerHTML=t.title;
+  document.getElementById("intro").innerHTML=t.intro;
+
+  document.getElementById("s1title").innerHTML=t.s1;
+  document.getElementById("s1desc").innerHTML=t.d1;
+
+  document.getElementById("s2title").innerHTML=t.s2;
+  document.getElementById("s2desc").innerHTML=t.d2;
+
+  document.getElementById("s3title").innerHTML=t.s3;
+  document.getElementById("s3desc").innerHTML=t.d3;
+
+  document.getElementById("s4title").innerHTML=t.s4;
+  document.getElementById("s4desc").innerHTML=t.d4;
+
+  document.getElementById("s5title").innerHTML=t.s5;
+  document.getElementById("s5desc").innerHTML=t.d5;
+
+  document.getElementById("s6title").innerHTML=t.s6;
+  document.getElementById("s6desc").innerHTML=t.d6;
+
+  document.getElementById("confirmTitle").innerHTML=t.confirm;
+  document.getElementById("confirm1").innerHTML=t.c1;
+  document.getElementById("confirm2").innerHTML=t.c2;
+  document.getElementById("important").innerHTML=t.important;
+  document.getElementById("warningText").innerHTML=t.warning;
+  document.getElementById("thankyou").innerHTML=t.thanks;
+
+  document.getElementById("s7title").innerHTML=t.s7;
+  document.getElementById("s7desc").innerHTML=t.d7;
+
+  document.getElementById("help").innerHTML=t.help;
+  document.getElementById("helpText").innerHTML=t.helpText;
+
+  document.getElementById("footer").innerHTML=t.footer;
+
+  document
+  .getElementById("langMenu")
+  .classList
+  .remove("show");
+
+  localStorage.setItem("zionLanguage",lang);
+}
+
+
+/* LOAD SAVED LANGUAGE */
+
+const savedLanguage=
+localStorage.getItem("zionLanguage") || "en";
+
+changeLang(savedLanguage);
+
+
+/* CLOSE LANGUAGE MENU */
+
+document.addEventListener("click",function(e){
+
+  const box=document.querySelector(".lang-box");
+
+  if(!box.contains(e.target)){
+    document
+    .getElementById("langMenu")
+    .classList
+    .remove("show");
+  }
+
+});
+
+</script>
+
+</body>
+</html>
